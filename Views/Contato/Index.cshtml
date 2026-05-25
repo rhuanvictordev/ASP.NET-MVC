@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Contatos";
+}
+
+<div class="">
+    <h2>Listagem de Contatos</h2>
+    <br />
+    <div style="height:50px">
+        <a class="btn-primary p-2" asp-controller="Contato" asp-action="Criar">Adicionar novo Contato</a>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Celular</th>
+          <th scope="col" style="width:200px; padding-left:50px">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Rhuan Victor</td>
+          <td>rhuan@emai.com</td>
+          <td>12345678</td>
+          <td>
+              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
+              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>João Pedro</td>
+          <td>joao@emai.com</td>
+          <td>12345678</td>
+          <td>
+              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
+              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Maria Clara</td>
+          <td>maria@emai.com</td>
+          <td>12345678</td>
+          <td>
+              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
+              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
