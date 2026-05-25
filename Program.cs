@@ -1,4 +1,5 @@
 using MeuSiteEmMVC.Data;
+using MeuSiteEmMVC.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BancoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ContatoModel>
+@{
     ViewData["Title"] = "Listagem de Contatos";
 }
 
@@ -20,37 +21,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Rhuan Victor</td>
-          <td>rhuan@emai.com</td>
-          <td>12345678</td>
-          <td>
-              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
-              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>João Pedro</td>
-          <td>joao@emai.com</td>
-          <td>12345678</td>
-          <td>
-              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
-              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Maria Clara</td>
-          <td>maria@emai.com</td>
-          <td>12345678</td>
-          <td>
-              <a style="background-color: #CAD960" asp-controller="Contato" asp-action="Editar">Editar</a>
-              <a style="background-color: #D93E2E" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
-          </td>
-        </tr>
-      </tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td>
+                            <a style="background-color: #CAD960" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
+                            <a style="background-color: #D93E2E" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
     </table>
 
 </div>
